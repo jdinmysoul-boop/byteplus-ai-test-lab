@@ -166,7 +166,7 @@ function App() {
           ) : errorMsg ? (
             <p style={{color: '#ff6b6b'}}>{errorMsg}</p>
           ) : (
-            <p style={styles.placeholder}>프롬프트나 이미지를 입력해 보세요.</p>
+            <p style={styles.placeholder}>아래의 프롬프트 창을 이용해 콘텐츠를 생성해 보세요.</p>
           )}
         </div>
 
