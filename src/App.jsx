@@ -193,7 +193,7 @@ function App() {
           <div style={styles.promptContainer}>
             <input type="file" accept="image/*" ref={fileInputRef} style={{ display: 'none' }} onChange={(e) => handleFile(e.target.files[0])} />
             <button onClick={() => fileInputRef.current.click()} style={styles.clipBtn}>📎</button>
-            <textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} placeholder="설명을 입력하거나 이미지를 끌어다 놓으세요..." style={styles.textarea} />
+            <textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} placeholder="프롬프트를 입력하거나 이미지를 추가해서 콘텐츠를 생성해 보세요. " style={styles.textarea} />
             <button onClick={handleGenerate} disabled={isLoading || (!prompt.trim() && !selectedImage)} style={styles.generateBtn}>생성</button>
           </div>
         </div>
@@ -226,7 +226,7 @@ const styles = {
   removePreviewBtn: { position: 'absolute', top: '5px', right: '5px', background: '#000', color: '#fff', border: 'none', borderRadius: '50%', width: '20px', height: '20px', cursor: 'pointer' },
   promptContainer: { display: 'flex', gap: '10px' },
   clipBtn: { padding: '0 20px', backgroundColor: '#2a2a2a', border: '1px solid #444', borderRadius: '8px', fontSize: '24px', cursor: 'pointer' },
-  textarea: { flex: 1, minHeight: '80px', padding: '16px', backgroundColor: '#2a2a2a', color: '#fff', border: '1px solid #444', borderRadius: '8px', fontSize: '18px' },
+  textarea: { flex: 1, minHeight: '80px', padding: '16px', backgroundColor: '#2a2a2a', color: '#fff', border: '1px solid #444', borderRadius: '8px', fontSize: '18px', fontFamily: 'inherit' },
   generateBtn: { padding: '0 32px', backgroundColor: '#4a90e2', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: 'bold', fontSize: '24px', cursor: 'pointer' },
   noticeText: { color: '#888', fontSize: '13px', lineHeight: '1.4' },
   mailLink: { color: '#4a90e2', textDecoration: 'none', fontWeight: 'bold' }
