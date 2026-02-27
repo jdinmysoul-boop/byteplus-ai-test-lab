@@ -172,16 +172,21 @@ function App() {
 
         <div style={{...styles.inputArea, ...(isDragging ? styles.inputAreaDragging : {})}} onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop}>
           <div style={styles.optionsContainer}>
-            {activeModel === 'seedream' ? (
-              <select value={imageRatio} onChange={(e) => setImageRatio(e.target.value)} style={styles.select}>
-                <option value="1:1">1:1</option><option value="16:9">16:9</option><option value="9:16">9:16</option>
-              </select>
-            ) : (
-              <select value={videoDuration} onChange={(e) => setVideoDuration(e.target.value)} style={styles.select}>
-                <option value="5">5초</option><option value="10">10초</option>
-              </select>
-            )}
-          </div>
+          {activeModel === 'seedream' ? (
+            <select value={imageRatio} onChange={(e) => setImageRatio(e.target.value)} style={styles.select}>
+              <option value="1:1">1:1</option><option value="16:9">16:9</option><option value="9:16">9:16</option>
+            </select>
+          ) : (
+            <select value={videoDuration} onChange={(e) => setVideoDuration(e.target.value)} style={styles.select}>
+              <option value="5">5초</option><option value="10">10초</option>
+            </select>
+          )}
+          {/* 👇 여기에 새로운 안내 문구가 추가되었습니다! */}
+          <span style={styles.noticeText}>
+            이 페이지는 테스트 용도로 제작되어 기능 제한이 있습니다.<br/>
+            보다 다양한 기능을 직접 테스트해보고 싶으시다면 <a href="mailto:dh.jang@sharedit.co.kr" style={styles.mailLink}>dh.jang@sharedit.co.kr</a>로 연락 부탁드립니다.
+          </span>
+        </div>
           
           {selectedImage && <div style={styles.previewContainer}><img src={selectedImage} alt="Preview" style={styles.previewImage} /><button onClick={() => setSelectedImage(null)} style={styles.removePreviewBtn}>✕</button></div>}
 
@@ -214,7 +219,7 @@ const styles = {
   progressBarFill: { height: '100%', backgroundColor: '#4a90e2', transition: 'width 0.5s' },
   inputArea: { backgroundColor: '#1e1e1e', padding: '20px', borderRadius: '12px', border: '2px dashed transparent' },
   inputAreaDragging: { borderColor: '#4a90e2', backgroundColor: '#252525' },
-  optionsContainer: { marginBottom: '10px' },
+  optionsContainer: { display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '10px' },
   select: { padding: '12px', backgroundColor: '#2a2a2a', color: '#fff', border: '1px solid #444', borderRadius: '4px' },
   previewContainer: { position: 'relative', display: 'inline-block', marginBottom: '15px' },
   previewImage: { height: '80px', borderRadius: '4px' },
@@ -222,7 +227,9 @@ const styles = {
   promptContainer: { display: 'flex', gap: '10px' },
   clipBtn: { padding: '0 20px', backgroundColor: '#2a2a2a', border: '1px solid #444', borderRadius: '8px', fontSize: '24px', cursor: 'pointer' },
   textarea: { flex: 1, minHeight: '80px', padding: '16px', backgroundColor: '#2a2a2a', color: '#fff', border: '1px solid #444', borderRadius: '8px', fontSize: '18px' },
-  generateBtn: { padding: '0 32px', backgroundColor: '#4a90e2', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: 'bold', fontSize: '24px', cursor: 'pointer' }
+  generateBtn: { padding: '0 32px', backgroundColor: '#4a90e2', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: 'bold', fontSize: '24px', cursor: 'pointer' },
+  noticeText: { color: '#888', fontSize: '13px', lineHeight: '1.4' },
+  mailLink: { color: '#4a90e2', textDecoration: 'none', fontWeight: 'bold' }
 };
 
 const styleSheet = document.createElement("style");
